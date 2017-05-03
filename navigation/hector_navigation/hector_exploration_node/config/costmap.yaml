@@ -1,0 +1,29 @@
+global_costmap:
+
+  map_type: costmap
+  track_unknown_space: true
+  unknown_cost_value: 255
+  obstacle_range: 2.5
+  raytrace_range: 3.0
+  footprint: [[0.2, 0],
+              [-0.2, 0],
+              [0, -0.2],
+              [0, 0.2]]
+  #robot_radius: 0.20
+  inflation_radius: 0.3
+  transform_tolerance: 0.5
+  inscribed_radius: 0.2
+  circumscribed_radius: 0.22
+
+  global_frame: /map
+  robot_base_frame: /base_link
+  update_frequency: 0.5
+  publish_frequency: 0.1
+  static_map: true
+  rolling_window: false
+
+  #Investigate what this actually does
+  cost_scaling_factor: 7.0
+#  plugins:
+#     - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+#     - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}

@@ -1,0 +1,15 @@
+#goal definition
+geometry_msgs/PoseStamped target_pose
+---
+#result definition
+int32 result
+
+# 0 = default/not started
+# 1 = arrived
+# 2 = arrived_with_trouble
+# 3 = aborted_home
+# 4 = aborted_stuck
+# 5 = preempted (not implimented)
+
+---
+#feedback

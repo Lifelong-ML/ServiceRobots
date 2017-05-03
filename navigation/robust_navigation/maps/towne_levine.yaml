@@ -1,0 +1,6 @@
+image: towne_levine.pgm
+resolution: 0.05
+origin: [-62.01823759078979, -20.03171291351318, 0]
+occupied_thresh: 0.51
+free_thresh: 0.49
+negate: 0

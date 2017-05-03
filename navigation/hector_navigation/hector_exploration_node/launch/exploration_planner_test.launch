@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+  
+  <!--launch-prefix="gdb -ex run ++args"-->
+
+  <node pkg="hector_exploration_node" type="exploration_planner_node" name="hector_exploration_node" output="screen">
+
+    <rosparam file="$(find turtlebot_navigation)/param/costmap_common_params.yaml" command="load" /> 
+    <rosparam file="$(find hector_exploration_node)/config/costmap.yaml" command="load" /> 
+    <!--<rosparam file="$(find turtlebot_navigation)/param/global_costmap_params.yaml" command="load" />-->
+
+  </node>
+</launch>

@@ -1,0 +1,16 @@
+<!-- launch nodes to autonomously explore and build a map -->
+<launch>
+  
+  <!--- Run mapping nodes -->
+  <include file="$(find robust_navigation)/launch/basic_mapping.launch"/>
+
+  <!--- Run Move Base -->
+  <include file="$(find robust_navigation)/launch/move_base.launch"/>
+
+  <!-- Run planner node -->
+  <include file="$(find hector_exploration_node)/launch/exploration_planner_test.launch"/>
+
+  <!-- run controller node -->
+  <node name="controller" pkg="hector_exploration_controller" type="simple_exploration_controller" /> 
+ 
+</launch>

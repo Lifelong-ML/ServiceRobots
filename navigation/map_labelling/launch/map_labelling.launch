@@ -1,0 +1,12 @@
+<launch>
+
+<node pkg="map_labelling" type="label_service.py" name="map_label" output="screen" >
+
+	<!-- Set file path for labels -->
+	<param name="label_file" value="/home/servicerobot1/ServiceRobotCourse/navigation/src/map_labelling/labels/towne_levine_labels.json"/>
+	
+</node>
+
+<include file="$(find robust_controller)/launch/robust_controller.launch" />
+
+</launch>

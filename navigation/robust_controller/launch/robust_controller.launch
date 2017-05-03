@@ -1,0 +1,5 @@
+<launch>
+
+<node name="robust_controller_server" pkg="robust_controller" type="robust_controller_node.py" output="screen" />
+
+</launch>

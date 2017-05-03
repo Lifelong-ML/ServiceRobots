@@ -1,0 +1,22 @@
+<!-- run mapping with cartographer -->
+<launch>
+
+<!--- Run cartographer -->
+  <param name="/use_sim_time" value="false" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory
+              $(find robust_navigation)/param 
+          -configuration_basename cartographer_params.lua"
+      output="screen">
+  </node>
+
+<!--- Run cartographer imu-out-of-order-msgs-removal -->
+  <node name="flat_world_imu_node" pkg="cartographer_turtlebot"
+      type="cartographer_flat_world_imu_node" output="screen">
+    <remap from="imu_in" to="/mobile_base/sensors/imu_data_raw" />
+    <remap from="imu_out" to="/imu" />
+  </node>
+
+</launch>

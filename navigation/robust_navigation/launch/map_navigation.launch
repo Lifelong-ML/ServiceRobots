@@ -1,0 +1,30 @@
+<!-- Launch file for basic map navigation -->
+<launch>
+
+  <!--- Run turtlebot platform -->
+  <include file="$(find turtlebot_bringup)/launch/minimal.launch"/>
+
+  <!--- Run lidar node -->
+  <include file="$(find robust_navigation)/launch/lidar.launch"/>
+
+  <!-- Run the map server -->
+  <arg name="map_file" default="$(find robust_navigation)/maps/towne_levine_full2_heavily_edited.yaml"/>  
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!--- Run AMCL -->
+  <include file="$(find robust_navigation)/launch/amcl.launch">
+    <arg name="scan_topic" value="scan" />
+  </include>
+
+  <!--- Run Move Base -->
+  <include file="$(find robust_navigation)/launch/move_base.launch">
+	<arg name="scan_topic" value="scan" />
+  </include>
+
+  <!-- Run the map labelling server and client -->
+ <!-- <node name="map_label_server" pkg="map_labelling" type="label_service.py"/> -->
+
+ <!--Run robust controller server -->
+ <!-- include file="$(find robust_controller)/launch/robust_controller.launch" /> -->
+ 
+</launch>

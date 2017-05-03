@@ -1,0 +1,9 @@
+<launch>
+
+  <node name="laser_driver" pkg="hokuyo_node" type="hokuyo_node">
+    <param name="frame_id" value="laser_link" />
+  </node>
+
+</launch>
+
+	

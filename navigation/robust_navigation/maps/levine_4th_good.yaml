@@ -1,0 +1,6 @@
+image: levine_4th_good.pgm
+resolution: 0.035
+origin: [-15.48800003051758, -29.74873519897461, 0]
+occupied_thresh: 0.51
+free_thresh: 0.49
+negate: 0

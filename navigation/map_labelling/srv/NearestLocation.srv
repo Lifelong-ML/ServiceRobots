@@ -1,0 +1,4 @@
+---
+string label
+float32 xDistance
+float32 yDistance

@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find hector_exploration_controller)/launch/gmapping_offline.launch.xml"/>
+
+</launch>

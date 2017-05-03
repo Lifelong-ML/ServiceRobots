@@ -1,0 +1,6 @@
+image: levine_6th.pgm
+resolution: 0.035
+origin: [-8.88580390930176, -15.81811639785767, 0]
+occupied_thresh: 0.51
+free_thresh: 0.49
+negate: 0

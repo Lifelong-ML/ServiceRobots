@@ -1,0 +1,6 @@
+image: towne_levine_full2_heavily_edited.pgm
+resolution: 0.035
+origin: [-67.35050216674806, -56.75636489868165, 0]
+occupied_thresh: 0.51
+free_thresh: 0.49
+negate: 0

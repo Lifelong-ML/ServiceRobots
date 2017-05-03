@@ -1,0 +1,14 @@
+<!-- launch nodes to build a map -->
+<!-- rviz and teleop need to be launch manually -->
+<launch>
+  
+  <!-- run minimal turtlebot nodes -->
+  <include file="$(find turtlebot_bringup)/launch/minimal.launch"/>
+
+  <!--- Run lidar node -->
+  <include file="$(find robust_navigation)/launch/lidar.launch"/>
+
+  <!--- Run cartographer -->
+  <include file="$(find robust_navigation)/launch/cartographer.launch"/>
+
+</launch>

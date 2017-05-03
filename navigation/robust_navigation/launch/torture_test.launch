@@ -1,0 +1,14 @@
+<launch>
+
+   <!-- override map in navigation launch file -->
+   <include file="$(find robust_navigation)/launch/map_navigation.launch" >
+     <arg name="map_file" default="$(find robust_navigation)/maps/towne_levine_full2_heavily_edited.yaml"/>
+  </include> 
+  
+  <include file="$(find map_labelling)/launch/map_labelling.launch" />
+  
+  <include file="$(find robust_controller)/launch/robust_controller.launch" />
+  
+  <node pkg="robust_navigation" type="torture_test_controller.py" name="torture_test" output="screen" />
+
+</launch>
