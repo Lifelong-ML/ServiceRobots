@@ -9,8 +9,12 @@ This collection of packages aims to provide robust, laser-based, indoor navigati
 - ROS [Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu) - Full Desktop installation recommended
 - For core navigation capabilities
     - Google's [Cartographer for Turtlebot](https://google-cartographer-ros-for-turtlebots.readthedocs.io/en/latest/)
+        - You may install Cartographer in it's own workspace as shown in the installation instructions or, if you know what you are doing, you can install it in your current catkin workspace. If you install in a separate workspace, you may need to add a new source command to your .bashrc file. It will look something like `source ~/path/to/cartographer/install_isolated/setup.bash` 
+        - If you run into trouble later with sourcing from multiple workspaces, see [this thread](http://answers.ros.org/question/205976/sourcing-from-multiple-workspaces/) for tips on resolving this. The key is to make sure you build and source one workspace at a time since each source command overlays on the previous one
     - Turtlebot packages: `sudo apt-get install ros-indigo-turtlebot`
     - TEB local planner: `sudo apt-get install ros-indigo-teb-local-planner`
+    - amcl: `sudo apt-get install ros-indigo-amcl`
+    - move_base: `sudo apt-get install ros-indigo-move-base`
 - For running a Hokuyo laser, the hokuyo_node package is needed: `sudo apt-get install ros-indigo-hokuyo-node`
 - For autonomus exploration hector_slam is needed: `sudo apt-get install ros-indigo-hector-slam`
 - For the robust controller, SMACH is needed: `sudo apt-get install ros-indigo-smach-ros`
@@ -19,9 +23,9 @@ This collection of packages aims to provide robust, laser-based, indoor navigati
 
 # Installation
 1. Ensure all required dependencies are installed
-2. Clone this repository to your computer
-3. Run catkin_make to compile all of the code and messages
-4. Source the setup script with `source devel/setup.bash`. You can add this to your .bashrc file for simplicity in the future.
+2. Clone this repository to your computer and move the packages to your catkin workspace. For information on setting up a catkin workspace, refer to the instructions [here](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
+3. Run catkin_make at the top level of your workspace to compile all of the code and messages
+4. Source the setup script with `source devel/setup.bash`. You can add `source ~/path/to/workspace/devel/setup.bash` to your .bashrc file to auto-source this workspace in the future.
 5. Copy updated turtlebot_library URDF from robust_navigation/UpdatedTurtlebotFiles and put it in $(find turtlebot_description)/urdf. You can use `roscd turtlebot_description/urdf` to get to the right folder.  This file adds in the description of the lidar placement so the transforms are handled properly. If your lidar is not placed as shown in the image below, you will need to edit the urdf to ensure it matches your lidar placement.
 
 <img src="https://cloud.githubusercontent.com/assets/11199681/25629217/cac891fa-2f36-11e7-878a-06041fe02909.png"  width="250">
