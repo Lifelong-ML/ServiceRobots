@@ -9,7 +9,6 @@ from std_msgs.msg import String
 import json
 import actionlib
 import math
-import Levenshtein
 
 current_pose = None
 saved_locations = {}
@@ -58,14 +57,6 @@ def get_nearest_location(msg):
 def go_to(msg):
 	global saved_locations, client
 	label = msg.label
-	levenshtein_threshold = 0.5
-	#lev_distances = [Levenshtein.ratio(label, loc) for loc in saved_locations.keys()]
-	#lev_distance_best = max(lev_distances)
-	
-	#if lev_distance_best >= levenshtein_threshold:
-	#	label = saved_locations[lev_distances.index(lev_distance_best)]
-	#else:
-	#	return None	
 
 	if label not in saved_locations:
 	    return None

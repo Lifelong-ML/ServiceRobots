@@ -9,9 +9,9 @@ This collection of packages aims to provide robust, laser-based, indoor navigati
 - ROS [Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu) - Full Desktop installation recommended
 - For core navigation capabilities
     - Google's [Cartographer for Turtlebot](https://google-cartographer-ros-for-turtlebots.readthedocs.io/en/latest/)
-        - You may install Cartographer in it's own workspace as shown in the installation instructions or, if you know what you are doing, you can install it in your current catkin workspace. If you install in a separate workspace, you may need to add a new source command to your .bashrc file. It will look something like `source ~/path/to/cartographer/install_isolated/setup.bash` 
-        - If you run into trouble later with sourcing from multiple workspaces, see [this thread](http://answers.ros.org/question/205976/sourcing-from-multiple-workspaces/) for tips on resolving this. The key is to make sure you build and source one workspace at a time since each source command overlays on the previous one
+        - See the [Cartographer Installation Notes](#cartographer-installation-notes) section for installation and troubleshooting tips
     - Turtlebot packages: `sudo apt-get install ros-indigo-turtlebot`
+    - Turtlebot navigation packages: `sudo apt-get install ros-indigo-turtlebot-navigation`
     - TEB local planner: `sudo apt-get install ros-indigo-teb-local-planner`
     - amcl: `sudo apt-get install ros-indigo-amcl`
     - move_base: `sudo apt-get install ros-indigo-move-base`
@@ -211,6 +211,14 @@ Due to some time constraints, this code did not turn out to be the most user-fri
 - smach can handle preemption of states and actions, however this was never specifically implimented or tested so it may or may not work in the current version of the code.
 
 Unforunately, since rviz sends goals directly to move_base through its interface, it cannot be used to send goals to robust_controller (though I'm sure a plugin could be written to fix that). So instead we include a simple test script called controller_test.py that will send several goals to robust_controller. You can modify these goals for your particular map and then put obstacles in the robot's path and see how robust_controller performs.
+
+## Cartographer Installation Notes
+Cartograhper can sometimes be a bit of a challenge to install and run properly. Here are some tips that will hopefully be useful:
+- You may install Cartographer in it's own workspace as shown in the installation instructions or, if you know what you are doing, you can install it in your current catkin workspace. If you install in a separate workspace, you may need to add a new source command to your .bashrc file. It will look something like `source ~/path/to/cartographer/install_isolated/setup.bash`.
+- If you run into trouble later with sourcing from multiple workspaces, see [this thread](http://answers.ros.org/question/205976/sourcing-from-multiple-workspaces/) for tips on resolving this. The key is to make sure you build and source one workspace at a time since each source command overlays on the previous one.
+- Since Cartographer is still under development, it is possible that future updates will cause incompatability with this code. If Cartograhper installs okay, but throws errors when being launched with one of the launch files from this repository, this is likely the case. There are two main reasons these errors would occur:
+    1. The Cartographer team may have changed the structure of the parameter file - this will likely result in errors being printed about lua_parameter_dictionary and nil vlaues. Since we have a custom parameter file for Cartographer (in robust_navigation/param/), if the required structure of the file is changed, our parameter file will be incorrect. A simple fix for this is to look for recent changes to the [original parameter file](https://github.com/googlecartographer/cartographer_turtlebot/blob/master/cartographer_turtlebot/configuration_files/turtlebot_urg_lidar_2d.lua).
+    2. The [Cartographer ROS API](https://google-cartographer-ros.readthedocs.io/en/latest/ros_api.html) may have changed - this might result in errors about ROS topics or services, or possible nothing happening at all. You can use the [roswtf](http://wiki.ros.org/roswtf) command to check that all of the topics are connected properly. If they aren't, you can [remap](http://wiki.ros.org/roslaunch/XML/remap) topics as necesary to connect everything up.
 
 ## Map Labelling Notes
 The map labelling service has several things hard coded that are useful to be aware of:

@@ -7,8 +7,6 @@
   
   <include file="$(find map_labelling)/launch/map_labelling.launch" />
   
-  <include file="$(find robust_controller)/launch/robust_controller.launch" />
-  
   <node pkg="robust_navigation" type="torture_test_controller.py" name="torture_test" output="screen" />
 
 </launch>
