@@ -1,6 +1,5 @@
 # Overview
-This collection of packages aims to provide a robust autodocking procedure for a TurtleBot 2.0.  
-Five packages are provided in the src directory:
+This collection of packages aims to provide a robust autodocking procedure for a TurtleBot 2.0. Five packages are provided in the src directory:
 - rl_common:     Some files that are common to both agents and environments.
 - rl_msgs:       Definitions of ROS messages for agents and envs to communicate.
 - rl_agent:      A library of some RL agents (such as Q-Learning).
