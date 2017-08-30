@@ -34,7 +34,8 @@ To test and determine an optimal policy for autodocking, an Autodock environment
 # Run Instructions 
 
 ## Running an experiment 
-In order for the agent and environment to communicate, one must bring up the TurtleBot. So start first by running: 
+In order for the agent and environment to communicate, one must bring up the TurtleBot. So start first by running:
+ 
 `roslaunch turtlebot_bringup minimal.launch`
 
 We can now start an agent from the rl_agent package. For our experiments, we utilized the Q-Learning agent, but one can opt to use other agents, which can be found in more detail [here](http://wiki.ros.org/rl_agent). Make sure you've sourced the setup script. To start the Q-Learning agent, enter the following command in a new terminal: 
