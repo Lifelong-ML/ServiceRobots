@@ -1,0 +1,60 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b rl_env is is a package containing reinforcement learning (RL) environments.
+
+These environments include gridworlds, taxi, mountain car, cart-pole, and a 
+simulation of the texas ART car. There are some options to change variables
+of these environments:
+
+
+ Call env --env type [options]
+
+Env types: taxi tworooms fourrooms energy fuelworld mcar cartpole car2to7 car7to2 carrandom stocks
+
+ Options:
+
+--seed value (integer seed for random number generator)
+
+--deterministic (deterministic version of domain)
+
+--stochastic (stochastic version of domain)
+
+--delay value (# steps of action delay (for mcar and tworooms)
+
+--lag (turn on brake lag for car driving domain)
+
+--highvar (have variation fuel costs in Fuel World)
+
+--nsectors value (# sectors for stocks domain)
+
+--nstocks value (# stocks for stocks domain)
+
+--prints (turn on debug printing of actions/rewards)
+
+
+
+\section codeapi Code API
+
+There are a variety of domains provided in this package. Here are a few examples:
+
+CartPole provides source for the CartPole balancing task.
+
+FuelRooms provides code for the Fuel World task.
+
+RobotCarVel provides code for the car velocity control simulation.
+
+<!--
+Provide links to specific auto-generated API documentation within your
+package that is of particular interest to a reader. Doxygen will
+document pretty much every part of your code, so do your best here to
+point the reader to the actual API.
+
+If your codebase is fairly large or has different sets of APIs, you
+should use the doxygen 'group' tag to keep these APIs together. For
+example, the roscpp documentation has 'libros' group.
+-->
+
+
+*/
