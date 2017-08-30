@@ -21,12 +21,13 @@ To test and determine an optimal policy for autodocking, an Autodock environment
 
 	`git clone https://github.com/GRASP-ML/ServiceRobots.git`
 
-3. Move the contents in the autdock directory to your catkin workspace. For information on setting up a catkin workspace, refer to the instructions [here](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
+3. Move the contents in the autdock directory to your catkin workspace. For information on setting up a catkin workspace, refer to the instructions [here](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
 4. Run catkin_make at the top level of your workspace to compile all of the code and messages. 
 5. Source the setup script with `source devel/setup.bash`. You can add `source ~/path/to/workspace/devel/setup.bash` to your .bashrc file to auto-source this workspace in the future.
 6. Try and run some simple ROS commands: 
 	
 	`rospack find rl_agent`
+	
 	`rosmake rl_agent`
 
 	These should compile without fault. 
