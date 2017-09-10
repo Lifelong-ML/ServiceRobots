@@ -41,7 +41,7 @@ A few sample maps are provided in the robust_navigation/maps directory but you a
 - Teleoperated map building
     - Start teleoperation nodes in separate terminals
         - `roslaunch robust_navigation basic_mapping.launch`
-        - `roslaunch turtlebot_teleop keyboard_teleoperation.launch`
+        - `roslaunch turtlebot_teleop keyboard_teleop.launch`
         - Follow instructions in terminal to drive
     - Visualize or save map if desired (see below)
        
